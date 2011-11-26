@@ -49,7 +49,7 @@
 
 #define KEY_ENTER   40
 #define KEY_ESCAPE  41
-#define KEY_DELETE  42
+#define KEY_BACKSPACE  42
 #define KEY_TAB     43
 #define KEY_SPACE   44
 #define KEY_MINUS   45
