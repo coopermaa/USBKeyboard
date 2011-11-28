@@ -57,6 +57,10 @@ class USBKeyboard {
       } else if ((*chp >= 'A') && (*chp <= 'Z')) {
         buf[0] = MOD_SHIFT_LEFT;	/* Caps */
         buf[2] = *chp - 'A' + 4;
+      } else if ((*chp >= '1') && (*chp <= '9')) {
+        buf[2] = *chp - '1' + 30;
+      } else if (*chp == '0') {
+        buf[2] = KEY_0;
       } else {
         switch (*chp) {
           case ' ':
@@ -80,7 +84,11 @@ class USBKeyboard {
           case ';':
             buf[2] = KEY_SEMICOLON;
             break;
-          case '"':
+          case ':':
+            buf[0] = MOD_SHIFT_LEFT;	/* Caps */
+            buf[2] = KEY_SEMICOLON;
+            break;
+            case '"':
             buf[2] = KEY_QUOTE;
             break;
           case '~':
@@ -91,6 +99,10 @@ class USBKeyboard {
             break;
           case '/':
             buf[2] = KEY_SLASH;
+            break;
+          case '@':
+            buf[0] = MOD_SHIFT_LEFT;	/* Caps */
+            buf[2] = KEY_2;
             break;
           default:
             /* Character not handled. To do: add rest of chars from HUT1_11.pdf */
