@@ -1,7 +1,12 @@
 #ifndef __USBKeyboard_h__
 #define __USBKeyboard_h__
 
-#include "WProgram.h"
+#if ARDUINO >= 100
+#include <Arduino.h>
+#else
+#include <WProgram.h>
+#endif
+
 #include "hid_keys.h"
 
 #define LED_NUMLOCK    (1 << 0)
